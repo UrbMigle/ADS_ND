@@ -4,16 +4,26 @@ import java.util.LinkedList;
 public class ADS_Before_Optimization {
     static int[] allVal;
     static LinkedList currValue = new LinkedList();
-    static int lost;
+    static int lost = 2;
 
     public static void main(String[] args) {
-        int n = 1000000;
+        int n = 369;
+        if (n == 0)
+        {
+            System.out.println(0);
+            System.exit(0);
+        }
+        if (n == 1)
+        {
+            System.out.println(0);
+            System.exit(0);
+        }
         allVal = new int[n + 1];
         allVal[0] = 0;
         allVal[1] = 0;
         allVal[2] = 1;
         int a = 0;
-        for (int i = 3; i < n; i++) {
+        for (int i = 3; i <= n; i++) {
             for (int j = 0; j < (i) / 2; j++) {
                 int first = j;
                 int sec = i - j - 2;
@@ -22,7 +32,7 @@ public class ADS_Before_Optimization {
             }
             addToAllVal(i);
         }
-        System.out.println("LOST " + (n - lost - 1));
+        System.out.println(n-lost);
     }
 
     public static void countVal(int left, int right)
